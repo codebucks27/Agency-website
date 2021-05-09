@@ -1,10 +1,8 @@
-import { ScrollTrigger } from "gsap/all";
-import gsap from "gsap/gsap-core";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import logo from "../../assets/logo.svg";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Headers = styled.header`
   display: flex;
@@ -163,6 +161,8 @@ const Header = () => {
   const [click, setClick] = useState(false);
   //const handleClick = () => setClick(!click);
   const ref = useRef(null);
+
+  gsap.registerPlugin(ScrollTrigger);
 
   const scrollUp = (id, e) => {
     e.preventDefault();
