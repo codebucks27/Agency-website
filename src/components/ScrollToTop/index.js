@@ -2,10 +2,8 @@ import SvgIcon from "../../assets/arrow-up.svg";
 
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
-import gsap from "gsap/gsap-core";
-import { ScrollTrigger } from "gsap/all";
-
-gsap.registerPlugin(ScrollTrigger);
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const Up = styled.div`
   box-sizing: border-box;
@@ -44,6 +42,7 @@ export const Up = styled.div`
 
 const ScrollToTop = () => {
   const ref = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
 
   const scrollUp = () => {
     const element = document.getElementById("home");
