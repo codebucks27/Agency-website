@@ -134,11 +134,11 @@ const About = () => {
         </div>
         <Content>
           <Rocket>
-            <img src={rocket} alt="" />
+            <img src={rocket} alt="" width="400" height="400" />
           </Rocket>
           <AboutText>
             <Human>
-              <img src={human} alt="" />
+              <img src={human} alt="" width="400" height="400" />
             </Human>
 
             <Text>

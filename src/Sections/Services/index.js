@@ -1,12 +1,17 @@
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
-import TextBlock from "../../components/TextBlock/index";
-import SvgBlock from "../../components/SvgBlock";
+
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Tube from "../../assets/3dtube.png";
 import Cone from "../../assets/3dtriangle.png";
 import Capsule from "../../assets/3dcapsule.png";
+
+import TextBlock from "../../components/TextBlock";
+import SvgBlock from "../../components/SvgBlock";
+
+// const TextBlock = lazy(() => import("../../components/TextBlock"));
+// const SvgBlock = lazy(() => import("../../components/SvgBlock"));
 
 gsap.registerPlugin(ScrollTrigger);
 const ServiceSection = styled.section`
@@ -298,7 +303,7 @@ const Services = () => {
           );
       }
     });
-  }, []);
+  }, [revealRefs]);
 
   const addToRefs = (el) => {
     if (el && !revealRefs.current.includes(el)) {
@@ -324,7 +329,7 @@ const Services = () => {
           }
         />
         <OBJ>
-          <img src={Tube} alt="Tube Object" />
+          <img src={Tube} alt="Tube Object" width="400" height="400" />
         </OBJ>
         <SvgBlock svg="Design.svg" />
       </Content>
@@ -340,7 +345,7 @@ const Services = () => {
           }
         />
         <OBJ>
-          <img src={Cone} alt="Cone Object" />
+          <img src={Cone} alt="Cone Object" width="400" height="400" />
         </OBJ>
         <SvgBlock svg="Develope.svg" />
       </Content>
@@ -357,7 +362,7 @@ const Services = () => {
           }
         />
         <OBJ>
-          <img src={Capsule} alt="Capsule Object" />
+          <img src={Capsule} alt="Capsule Object" width="400" height="400" />
         </OBJ>
         <SvgBlock svg="Support.svg" />
       </Content>

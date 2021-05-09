@@ -1,9 +1,11 @@
-import React from "react";
+import React, { lazy } from "react";
 import styled from "styled-components";
-import Card from "../../components/Card/index";
+
 import Slider from "react-slick";
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
+
+const Card = lazy(() => import("../../components/Card/index"));
 
 const Section = styled.div`
   display: flex;

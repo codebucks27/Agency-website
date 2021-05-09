@@ -1,19 +1,22 @@
 import { GlobalStyle } from "./globalStyles";
-import Header from "./components/Header/index";
-import Footer from "./components/Footer/index";
-import ScrollToTop from "./components/ScrollToTop/index";
+import { lazy, Suspense } from "react";
 
-import Home from "./Pages/Home";
+const Home = lazy(() => import("./Pages/Home"));
+const Header = lazy(() => import("./components/Header/index"));
+const Footer = lazy(() => import("./components/Footer/index"));
+const ScrollToTop = lazy(() => import("./components/ScrollToTop/index"));
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      {/* Hi There! */}
-      <ScrollToTop />
-      <Header />
-      <Home />
-      <Footer />
+      <Suspense fallback={null}>
+        <GlobalStyle />
+        {/* Hi There! */}
+        <ScrollToTop />
+        <Header />
+        <Home />
+        <Footer />
+      </Suspense>
     </>
   );
 }

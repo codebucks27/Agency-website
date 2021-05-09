@@ -25,16 +25,16 @@ const Image = styled.div`
   background: url(${(props) => props.img});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: top;
   filter: drop-shadow(0px -3px 3px var(--nav2));
 `;
 
 const TEXT = styled.h4`
   color: var(--white);
   padding: 0 calc(1rem + 1vw);
-  padding-top: 2rem;
+
   text-align: center;
-  font-size: calc(0.5rem + 0.5vw);
+  font-size: calc(0.6rem + 0.5vw);
 `;
 
 const NAME = styled.h3`

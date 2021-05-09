@@ -177,13 +177,13 @@ const HeroSection = () => {
     <HomeSection id="home">
       <Blobs>
         <PinkBlob>
-          <img src={pinkBlob} alt="" />{" "}
+          <img src={pinkBlob} alt="" width="400" height="400" />{" "}
         </PinkBlob>
         <WhiteBlob>
-          <img src={whiteBlob} alt="" />
+          <img src={whiteBlob} alt="" width="400" height="400" />
         </WhiteBlob>
         <PurpleBlob>
-          <img src={purpleBlob} alt="" />
+          <img src={purpleBlob} alt="" width="400" height="400" />
         </PurpleBlob>
       </Blobs>
 
@@ -199,11 +199,17 @@ const HeroSection = () => {
           </SubText>
           <CTA>
             Get in touch &nbsp;
-            <img src={arrow} alt="cta" />
+            <img src={arrow} alt="cta" width="100" height="100" />
           </CTA>
         </Lb>
 
-        <MobileSvg src={Mobile} alt="Mobile Svg" srcset="" />
+        <MobileSvg
+          src={Mobile}
+          alt="Mobile Svg"
+          srcset=""
+          width="400"
+          height="400"
+        />
       </MainContent>
     </HomeSection>
   );
