@@ -48,7 +48,7 @@ const Card = ({ name, text, image }) => {
 
   return (
     <CARD>
-      <Image img={Avatar} />
+      <Image img={Avatar} width="400" height="400" />
       <TEXT>{text}</TEXT>
       <NAME>{name}</NAME>
     </CARD>

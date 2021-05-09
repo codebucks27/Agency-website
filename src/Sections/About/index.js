@@ -6,7 +6,7 @@ import hand from "../../assets/hand.svg";
 
 const move = keyframes`
 0% { transform: translateY(-5px)         }
-    50% { transform: translateY(10px) translateX(20px)        }
+    50% { transform: translateY(10px) translateX(10px)        }
     100% { transform: translateY(-5px)         }
 `;
 
@@ -76,15 +76,12 @@ const Rocket = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
-  width: 30%;
+  width: 40%;
   padding-bottom: 5rem;
   animation: ${move} 2.5s ease infinite;
   @media only Screen and (max-width: 40em) {
     width: 50vw;
     padding-bottom: 0;
-  }
-  img {
-    transform: scale(1.5);
   }
 `;
 
