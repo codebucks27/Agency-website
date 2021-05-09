@@ -1,5 +1,6 @@
 //  /* Colors */
 //   --background: #eff7f9;
+//   --black:#0a0b10;
 //   --purple:#803bec;
 //   --pink:#e5a1f8;
 //   --white:#fff;
@@ -13,7 +14,6 @@
 //     font-family: 'Poppins', sans-serif;
 // }
 // html{
-//   overflow-y: scroll;
 //   scroll-behavior:smooth;
 // }
 //     body,
