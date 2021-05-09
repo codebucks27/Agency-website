@@ -137,16 +137,23 @@ const Services = () => {
         pinReparent: true,
       },
     });
-    t1.to(document.getElementById("line"), {
-      height: "3rem",
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: document.getElementById("line"),
-        start: "top top+=200",
-        end: "bottom top+=220",
-        scrub: true,
+    t1.fromTo(
+      document.getElementById("line"),
+
+      {
+        height: "15rem",
       },
-    });
+      {
+        height: "3rem",
+        duration: 2,
+        scrollTrigger: {
+          trigger: document.getElementById("line"),
+          start: "top top+=200",
+          end: "bottom top+=220",
+          scrub: true,
+        },
+      }
+    );
 
     revealRefs.current.forEach((el, index) => {
       // console.log(el.childNodes);
@@ -302,7 +309,7 @@ const Services = () => {
           );
       }
     });
-  }, [revealRefs]);
+  }, []);
 
   const addToRefs = (el) => {
     if (el && !revealRefs.current.includes(el)) {
