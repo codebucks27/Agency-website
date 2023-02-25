@@ -6,7 +6,7 @@ View Demo:
 https://agency-website-eta.vercel.app/
 
 If you want to learn how to create it please checkout following **Tutorial**👇: <br />
-<a href="https://devdreaming.com/videos/responsive-reactjs-website-gsap-styled-components" target="_blank" rel="dofollow">How to Build Responsive Website in React JS with Styled-Components and GSAP for awesome scroll Animations</a> <br />
+<a href="https://devdreaming.com/videos/responsive-reactjs-website-gsap-styled-components" target="_blank">How to Build Responsive Website in React JS with Styled-Components and GSAP for awesome scroll Animations</a> <br />
 
 [https://youtu.be/aAEfBxcGpJ8]::
 
