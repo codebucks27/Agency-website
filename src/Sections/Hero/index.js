@@ -206,7 +206,7 @@ const HeroSection = () => {
         <MobileSvg
           src={Mobile}
           alt="Mobile Svg"
-          srcset=""
+          srcSet=""
           width="400"
           height="400"
         />

@@ -251,10 +251,10 @@ const Header = () => {
           <Button>Contact Us</Button>
         </a>
       </Nav>
-      <HamburgerBtn clicked={click} onClick={() => setClick(!click)}>
+      <HamburgerBtn clicked={+click} onClick={() => setClick(!click)}>
         <span></span>
       </HamburgerBtn>
-      <MobileMenu clicked={click}>
+      <MobileMenu clicked={+click}>
         <a href="#home" onClick={(e) => handleClick("home", e)}>
           Home
         </a>

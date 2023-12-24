@@ -311,11 +311,14 @@ const Services = () => {
     });
   }, []);
 
+
   const addToRefs = (el) => {
     if (el && !revealRefs.current.includes(el)) {
       revealRefs.current.push(el);
     }
   };
+
+  
   return (
     <ServiceSection id="services">
       <Background ref={ref}>
