@@ -1,0 +1,2 @@
+# Let Vite resolve env files for the requested mode before values become inherited.
+env = false

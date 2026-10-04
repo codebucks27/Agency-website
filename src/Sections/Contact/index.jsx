@@ -156,8 +156,8 @@ const Contact = () => {
         <textarea
           name=""
           id=""
-          cols="30"
-          rows="2"
+          cols={30}
+          rows={2}
           placeholder="your message"
         ></textarea>
         <div style={{ margin: "0 auto" }}>

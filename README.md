@@ -101,3 +101,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Dependency/tooling upgrade (October 2026)
+
+CRA is replaced by Vite 8.3 and Vitest 5; React 19.3, Router 7.18, GSAP 3.15, styled-components 6.5, react-slick 0.31 and web-vitals 6.2 are upgraded. JSX files, static asset imports, carousel CommonJS imports, GSAP cleanup/snap options and web-vitals callbacks are migrated; the original design is preserved.
+
+Use Bun 1.4.2 with Node 22.22.2+, 24.15+ or 26+: `bun install --frozen-lockfile`, then `bun run start`, `bun run lint`, `bun run typecheck`, `bun run test`, `bun run build` or `bun run preview`. Output remains `build/`; public paths, SPA navigation and `REACT_APP_*`/`PUBLIC_URL` remain compatible. Vite owns env loading. ESLint 9 retains React-plugin compatibility; dotenv 10/expand 5 preserve CRA env syntax; slick-carousel 1.8.1 preserves styling/interactions.

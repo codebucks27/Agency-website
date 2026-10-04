@@ -1,4 +1,4 @@
-import gsap from "gsap";
+import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
@@ -116,91 +116,129 @@ const OBJ = styled.div`
 `;
 
 const Services = () => {
-  const ref = useRef(null);
+  const ref = useRef(/** @type {HTMLDivElement | null} */ (null));
   gsap.registerPlugin(ScrollTrigger);
-  const revealRefs = useRef([]);
-  revealRefs.current = [];
+  const revealRefs = useRef(/** @type {HTMLDivElement[]} */ ([]));
 
   useEffect(() => {
-    const element = ref.current;
-    ////
-    const mq = window.matchMedia("(max-width: 48em)");
-    const t1 = gsap.timeline({
-      scrollTrigger: {
-        trigger: document.getElementById("services"),
-
-        start: "top top+=180",
-
-        end: "bottom bottom",
-
-        pin: element,
-        pinReparent: true,
-      },
-    });
-    t1.fromTo(
-      document.getElementById("line"),
-
-      {
-        height: "15rem",
-      },
-      {
-        height: "3rem",
-        duration: 2,
+    const context = gsap.context(() => {
+      const element = ref.current;
+      ////
+      const mq = window.matchMedia("(max-width: 48em)");
+      const t1 = gsap.timeline({
         scrollTrigger: {
-          trigger: document.getElementById("line"),
-          start: "top top+=200",
-          end: "bottom top+=220",
-          scrub: true,
+          trigger: document.getElementById("services"),
+
+          start: "top top+=180",
+
+          end: "bottom bottom",
+
+          pin: element,
+          pinReparent: true,
         },
-      }
-    );
+      });
+      t1.fromTo(
+        document.getElementById("line"),
 
-    revealRefs.current.forEach((el, index) => {
-      // console.log(el.childNodes);
-      if (mq.matches) {
-        t1.from(
-          el.childNodes[0],
+        {
+          height: "15rem",
+        },
+        {
+          height: "3rem",
+          duration: 2,
+          scrollTrigger: {
+            trigger: document.getElementById("line"),
+            start: "top top+=200",
+            end: "bottom top+=220",
+            scrub: true,
+          },
+        }
+      );
 
-          {
-            x: -300,
-            opacity: 0,
-            duration: 2,
-
-            ease: "power2",
-            scrollTrigger: {
-              id: `section-${index + 1}`,
-              trigger: el,
-              start: "top center+=200",
-              end: "bottom bottom-=100",
-              scrub: true,
-              snap: true,
-              //
-              // toggleActions: "play none none reverse",
-            },
-          }
-        )
-          .to(el.childNodes[1], {
-            transform: "scale(0)",
-
-            ease: "power2.inOut",
-
-            scrollTrigger: {
-              id: `section-${index + 1}`,
-              trigger: el.childNodes[1],
-              start: "top center",
-              end: "bottom center",
-              scrub: true,
-              snap: true,
-
-              // toggleActions: "play none none reverse",
-            },
-          })
-          .from(
-            el.childNodes[2],
+      revealRefs.current.forEach((el, index) => {
+        // console.log(el.childNodes);
+        if (mq.matches) {
+          t1.from(
+            el.childNodes[0],
 
             {
-              y: 400,
+              x: -300,
+              opacity: 0,
+              duration: 2,
 
+              ease: "power2",
+              scrollTrigger: {
+                id: `section-${index + 1}`,
+                trigger: el,
+                start: "top center+=200",
+                end: "bottom bottom-=100",
+                scrub: true,
+                snap: 1,
+                //
+                // toggleActions: "play none none reverse",
+              },
+            }
+          )
+            .to(el.childNodes[1], {
+              transform: "scale(0)",
+
+              ease: "power2.inOut",
+
+              scrollTrigger: {
+                id: `section-${index + 1}`,
+                trigger: /** @type {HTMLDivElement} */ (el.childNodes[1]),
+                start: "top center",
+                end: "bottom center",
+                scrub: true,
+                snap: 1,
+
+                // toggleActions: "play none none reverse",
+              },
+            })
+            .from(
+              el.childNodes[2],
+
+              {
+                y: 400,
+
+                duration: 2,
+
+                ease: "power2",
+                scrollTrigger: {
+                  id: `section-${index + 1}`,
+                  trigger: el,
+                  start: "top center+=100",
+                  end: "bottom bottom-=200",
+                  scrub: true,
+                  snap: 1,
+                  //
+                  // toggleActions: "play none none reverse",
+                },
+              }
+            )
+            .to(
+              el,
+
+              {
+                opacity: 0,
+
+                ease: "power2",
+                scrollTrigger: {
+                  id: `section-${index + 1}`,
+                  trigger: el,
+                  start: "top top+=300",
+                  end: "center top+=300",
+                  scrub: true,
+                },
+              }
+            );
+        } else {
+          t1.from(
+            el.childNodes[0],
+
+            {
+              x: -300,
+              opacity: 0,
               duration: 2,
 
               ease: "power2",
@@ -210,108 +248,74 @@ const Services = () => {
                 start: "top center+=100",
                 end: "bottom bottom-=200",
                 scrub: true,
-                snap: true,
+                snap: 1,
                 //
                 // toggleActions: "play none none reverse",
               },
             }
           )
-          .to(
-            el,
+            .to(el.childNodes[1], {
+              transform: "scale(0)",
 
-            {
-              opacity: 0,
+              ease: "power2.inOut",
 
-              ease: "power2",
               scrollTrigger: {
                 id: `section-${index + 1}`,
-                trigger: el,
-                start: "top top+=300",
-                end: "center top+=300",
+                trigger: /** @type {HTMLDivElement} */ (el.childNodes[1]),
+                start: "top center",
+                end: "bottom center",
                 scrub: true,
-              },
-            }
-          );
-      } else {
-        t1.from(
-          el.childNodes[0],
+                snap: 1,
 
-          {
-            x: -300,
-            opacity: 0,
-            duration: 2,
-
-            ease: "power2",
-            scrollTrigger: {
-              id: `section-${index + 1}`,
-              trigger: el,
-              start: "top center+=100",
-              end: "bottom bottom-=200",
-              scrub: true,
-              snap: true,
-              //
-              // toggleActions: "play none none reverse",
-            },
-          }
-        )
-          .to(el.childNodes[1], {
-            transform: "scale(0)",
-
-            ease: "power2.inOut",
-
-            scrollTrigger: {
-              id: `section-${index + 1}`,
-              trigger: el.childNodes[1],
-              start: "top center",
-              end: "bottom center",
-              scrub: true,
-              snap: true,
-
-              // toggleActions: "play none none reverse",
-            },
-          })
-          .from(
-            el.childNodes[2],
-
-            {
-              y: 400,
-
-              duration: 2,
-
-              ease: "power2",
-              scrollTrigger: {
-                id: `section-${index + 1}`,
-                trigger: el,
-                start: "top center+=100",
-                end: "bottom bottom-=200",
-                scrub: true,
-                snap: true,
-                //
                 // toggleActions: "play none none reverse",
               },
-            }
-          )
-          .to(
-            el,
+            })
+            .from(
+              el.childNodes[2],
 
-            {
-              opacity: 0,
+              {
+                y: 400,
 
-              ease: "power2",
-              scrollTrigger: {
-                id: `section-${index + 1}`,
-                trigger: el,
-                start: "top top+=200",
-                end: "center top+=300",
-                scrub: true,
-              },
-            }
-          );
-      }
+                duration: 2,
+
+                ease: "power2",
+                scrollTrigger: {
+                  id: `section-${index + 1}`,
+                  trigger: el,
+                  start: "top center+=100",
+                  end: "bottom bottom-=200",
+                  scrub: true,
+                  snap: 1,
+                  //
+                  // toggleActions: "play none none reverse",
+                },
+              }
+            )
+            .to(
+              el,
+
+              {
+                opacity: 0,
+
+                ease: "power2",
+                scrollTrigger: {
+                  id: `section-${index + 1}`,
+                  trigger: el,
+                  start: "top top+=200",
+                  end: "center top+=300",
+                  scrub: true,
+                },
+              }
+            );
+        }
+      });
     });
+
+    return () => context.revert();
   }, []);
 
 
+  /** @param {HTMLDivElement | null} el */
   const addToRefs = (el) => {
     if (el && !revealRefs.current.includes(el)) {
       revealRefs.current.push(el);

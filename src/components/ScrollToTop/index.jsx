@@ -2,7 +2,7 @@ import SvgIcon from "../../assets/arrow-up.svg";
 
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const Up = styled.div`
@@ -41,11 +41,11 @@ export const Up = styled.div`
 `;
 
 const ScrollToTop = () => {
-  const ref = useRef(null);
+  const ref = useRef(/** @type {HTMLImageElement | null} */ (null));
   gsap.registerPlugin(ScrollTrigger);
 
   const scrollUp = () => {
-    const element = document.getElementById("home");
+    const element = /** @type {HTMLElement} */ (document.getElementById("home"));
     element.scrollIntoView({
       behavior: "smooth",
       block: "end",
@@ -54,15 +54,19 @@ const ScrollToTop = () => {
   };
 
   useEffect(() => {
-    const element = ref.current;
-    gsap.to(element, {
-      display: "block",
-      scrollTrigger: {
-        trigger: element,
-        start: "top top",
-        scrub: true,
-      },
+    const context = gsap.context(() => {
+      const element = ref.current;
+      gsap.to(element, {
+        display: "block",
+        scrollTrigger: {
+          trigger: element,
+          start: "top top",
+          scrub: true,
+        },
+      });
     });
+
+    return () => context.revert();
   }, []);
 
   return (

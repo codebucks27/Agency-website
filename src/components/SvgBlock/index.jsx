@@ -1,5 +1,13 @@
-import React from "react";
 import styled from "styled-components";
+import design from "../../assets/Design.svg";
+import develope from "../../assets/Develope.svg";
+import support from "../../assets/Support.svg";
+
+const serviceImages = {
+  "Design.svg": design,
+  "Develope.svg": develope,
+  "Support.svg": support,
+};
 
 const Rb = styled.div`
   display: flex;
@@ -17,8 +25,9 @@ const Rb = styled.div`
   }
 `;
 
+/** @param {{ svg: keyof typeof serviceImages }} props */
 const SvgBlock = ({ svg }) => {
-  const SvgIcon = require(`../../assets/${svg}`);
+  const SvgIcon = serviceImages[svg];
   //console.log(SvgIcon);
   return (
     <Rb id="svgBlock">
