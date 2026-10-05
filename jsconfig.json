@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "noEmit": true,
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "dotenv": ["./node_modules/dotenv/types/index.d.ts"],
+      "gsap": ["./node_modules/gsap/types/index.d.ts"],
+      "gsap/*": ["./node_modules/gsap/types/index.d.ts"]
+    },
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom", "node", "gsap"]
+  },
+  "include": ["src", "vite.config.js", "eslint.config.js"]
+}

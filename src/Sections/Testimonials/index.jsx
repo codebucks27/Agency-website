@@ -1,9 +1,13 @@
-import React, { lazy } from "react";
+import { lazy } from "react";
 import styled from "styled-components";
 
-import Slider from "react-slick";
-import "../../../node_modules/slick-carousel/slick/slick.css";
-import "../../../node_modules/slick-carousel/slick/slick-theme.css";
+import SliderExport from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// CommonJS default imports may expose either the Slider class or its module object.
+const sliderExport = /** @type {typeof SliderExport | { default: typeof SliderExport }} */ (SliderExport);
+const Slider = typeof sliderExport === "function" ? sliderExport : sliderExport.default;
 
 const Card = lazy(() => import("../../components/Card/index"));
 

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Lb = styled.div`
@@ -61,6 +60,14 @@ const SubText = styled.div`
   }
 `;
 
+/**
+ * @param {{
+ *   topic: string,
+ *   title: import("react").ReactNode,
+ *   subText: import("react").ReactNode,
+ *   children?: import("react").ReactNode
+ * }} props
+ */
 const TextBlock = ({ topic, title, subText, children }) => {
   return (
     <Lb id="leftBlock">

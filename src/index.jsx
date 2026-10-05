@@ -1,4 +1,3 @@
-import React from "react";
 // import ReactDOM from "react-dom";
 
 import App from "./App";
@@ -7,6 +6,7 @@ import App from "./App";
 import { createRoot } from 'react-dom/client';
 
 const domNode = document.getElementById('root');
+if (!domNode) throw new Error("The page is missing its root element.");
 const root = createRoot(domNode);
 root.render(<App />);
 

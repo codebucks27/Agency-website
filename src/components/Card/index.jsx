@@ -1,4 +1,15 @@
 import styled from "styled-components";
+import avatar1 from "../../assets/avatar-1.jpg";
+import avatar2 from "../../assets/avatar-2.jpg";
+import avatar3 from "../../assets/avatar-3.jpg";
+import avatar4 from "../../assets/avatar-4.jpg";
+
+const avatars = {
+  "avatar-1": avatar1,
+  "avatar-2": avatar2,
+  "avatar-3": avatar3,
+  "avatar-4": avatar4,
+};
 
 const CARD = styled.div`
   height: calc(8rem + 12vw);
@@ -13,7 +24,7 @@ const CARD = styled.div`
   align-items: center;
 `;
 
-const Image = styled.div`
+const Image = /** @type {typeof styled.div<{ img: string, width: string, height: string }>} */ (styled.div)`
   width: 40%;
   height: 40%;
   position: absolute;
@@ -43,8 +54,9 @@ const NAME = styled.h3`
   font-size: calc(0.5rem + 1vw);
 `;
 
+/** @param {{ name: string, text: string, image: keyof typeof avatars }} props */
 const Card = ({ name, text, image }) => {
-  const Avatar = require(`../../assets/${image}.jpg`);
+  const Avatar = avatars[image];
 
   return (
     <CARD>
